@@ -5,15 +5,15 @@ import Box from './component/Box';
 const choice = {
   rock: {
     name: 'rock',
-    img: 'https://static.thenounproject.com/png/88661-200.png',
+    img: 'https://static.thenounproject.com/png/477914-200.png',
   },
   scissors: {
     name: 'scissors',
-    img: 'https://static.thenounproject.com/png/88666-200.png',
+    img: 'https://static.thenounproject.com/png/477919-200.png',
   },
   paper: {
     name: 'paper',
-    img: 'https://static.thenounproject.com/png/88662-200.png',
+    img: 'https://static.thenounproject.com/png/477912-200.png',
   },
 };
 const App = () => {
@@ -21,6 +21,9 @@ const App = () => {
   const [comImg, setComImg] = useState('');
   const [userResult, setUserResult] = useState('');
   const [comResult, setComResult] = useState('');
+
+  let questionImg =
+    'https://www.supercoloring.com/sites/default/files/styles/coloring_medium/public/cif/2022/02/1472-question-mark-emoji-coloring-page.png';
 
   const clickBtn = (userChoice) => {
     let comResult = random();
@@ -51,8 +54,16 @@ const App = () => {
   return (
     <div>
       <div className="box-align">
-        <Box title="나" img={userImg.img} result={userResult} />
-        <Box title="컴퓨터" img={comImg.img} result={comResult} />
+        {userImg === '' || userImg === null ? (
+          <Box title="나" img={questionImg} result="결과는?" />
+        ) : (
+          <Box title="나" img={userImg.img} result={userResult} />
+        )}
+        {comImg === '' || userImg === null ? (
+          <Box title="컴퓨터" img={questionImg} result="결과는?" />
+        ) : (
+          <Box title="컴퓨터" img={comImg.img} result={comResult} />
+        )}
       </div>
 
       <div className="btn">

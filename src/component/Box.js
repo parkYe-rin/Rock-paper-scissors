@@ -5,7 +5,7 @@ const Box = ({ title, img, result }) => {
     <div className={`box ${result}`}>
       <div>{title}</div>
       <div>
-        <img src={img} alt="" />
+        <img src={img} alt="" className="img-height" />
       </div>
       <div>{result}</div>
     </div>
